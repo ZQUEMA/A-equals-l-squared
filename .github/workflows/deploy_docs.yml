@@ -19,7 +19,7 @@ jobs:
       run: npm install
       working-directory: ${{ env.WORKING_DIR }}
     - name: Install prisma-docs-generator
-      run: npm install -D prisma-docs-generator
+      run: npm install prisma-docs-generator
       working-directory: ${{ env.WORKING_DIR }}
     - name: Generate Prisma docs
       run: npx prisma-docs-generator --out-dir docs/prisma
