@@ -17,7 +17,7 @@ jobs:
     - name: Change working directory
       run: cd server
     - name: Install dependencies
-      run: npm install
+      run: cd server && npm install
     - name: Generate Prisma docs
       run: npx prisma-docs-generator --out-dir docs/prisma
     - name: Deploy Prisma docs
