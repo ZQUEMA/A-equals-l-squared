@@ -22,15 +22,14 @@ jobs:
       run: npx prisma-docs-generator --out-dir docs/prisma
       working-directory: ${{ env.WORKING_DIR }}
     - name: Js documentation
-      working-directory: ${{ env.WORKING_DIR }}
       uses: andstor/jsdoc-action@v1
       with:
-        source_dir: ./
-        output_dir: ./docs/js
+        source_dir: ./server
+        output_dir: ./server/docs/js
         template: minami
         front_page: README.md
     - name: Deploy docs
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs
+        publish_dir: server/docs
