@@ -13,7 +13,7 @@
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
 
-## **Project Overview** 
+## **Project Overview*
 
 The goal of this project is to create a business application that allows members to discover and utilize the software platform of their choice through the implementation of a software suite similar to that of IFTTT and/or Zapier. The software suite will be broken down into three parts: an application server to implement all the features listed, a web client to use the application from a browser, and a mobile client to use the application from a phone.
 
