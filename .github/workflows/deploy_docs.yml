@@ -1,0 +1,43 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  deploy-prisma-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Change working directory
+      run: cd server
+    - name: Install dependencies
+      run: npm ci
+    - name: Generate Prisma docs
+      run: npx prisma-docs-generator --out-dir docs/prisma
+    - name: Deploy Prisma docs
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/prisma
+  deploy-node-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Change working directory
+      run: cd server
+    - name: Install dependencies
+      run: npm ci
+    - name: Generate Node.js docs
+      run: npx jsdoc -c jsdoc.json
+    - name: Deploy Node.js docs
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/nodejs
